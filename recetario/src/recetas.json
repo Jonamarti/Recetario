@@ -1,0 +1,60 @@
+{
+	"recetas": [
+		{
+			"id": 0,
+			"name": "Agua",
+			"prepTime": 0,
+			"numberIngredients": 1,
+			"difficulty": 0,
+			"description": "Un simple vaso de agua",
+			"prepGuide":"Ir al grifo y listo",
+			"rating":3,
+			"views":0
+
+		},
+		{
+			"id": 1,
+			"name": "Leche con galletas",
+			"prepTime": 1,
+			"numberIngredients": 2,
+			"difficulty": 0,
+			"description": "Leche con galletas",
+			"prepGuide":"Calienta la leche (o no) y unta las galletas",
+			"rating":4,
+			"views":30
+		},
+		{
+			"id": 2,
+			"name": "Patatas fritas",
+			"prepTime": 20,
+			"numberIngredients": 1,
+			"difficulty": 2,
+			"description": "Unas patatas fritas",
+			"prepGuide":"Calentar el aceite, cortar las patatas en trozos largos, freír y remover hasta que estén doradas",
+			"rating":5,
+			"views":400
+		},
+		{
+			"id": 3,
+			"name": "Tortilla francesa",
+			"prepTime": 4,
+			"numberIngredients": 2,
+			"difficulty": 1,
+			"description": "Una sencilla tortilla francesa sin nada más",
+			"prepGuide":"Echar un poco de aceite a la sartén, batir los huevos, echar los huevos, dar vuelta para que no se queme",
+			"rating":3,
+			"views":4
+		},
+		{
+			"id": 4,
+			"name": "Tortilla francesa con queso y jamón",
+			"prepTime": 6,
+			"numberIngredients": 4,
+			"difficulty": 2,
+			"description": "Una tortilla francesa con queso y jamón",
+			"prepGuide":"Echar un poco de aceite a la sartén, batir los huevos, dorar el jamón, echar el queso en el huevo en trozos pequeños, dar vuelta para que no se pegue",
+			"rating":5,
+			"views":6
+		}
+	]
+}
