@@ -1,6 +1,6 @@
 * {
   text-align: center;
-  margin:auto;
+  margin: auto;
 }
 
 body {
@@ -24,7 +24,7 @@ body {
 /* Nav init */
 
 nav {
- 
+
   border-bottom: 4px solid black;
   text-align: center;
   /* position: fixed; */
@@ -62,42 +62,136 @@ nav a:hover {
 
 
 .dropdown-content {
-	display: none;
-	position: absolute;
-	background-color: #f9f9f9;
-	min-width: 160px;
-	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-	z-index: 1;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 
 
 .dropdown-content a {
-	color: black;
-	background-color: inherit;
-	padding: 12px 16px;
-	text-decoration: none;
-	display: block;
-	text-align: left;
+  color: black;
+  background-color: inherit;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
 }
 
 .dropdown-content a:hover {
-	background-color: #f1f1f1;
+  background-color: #f1f1f1;
 }
 
 .recetasDropdown:hover .dropdown-content {
-	display: block;
+  display: block;
 }
 
 
 li.about {
-	float: right;
+  float: right;
 }
 
 a.about {
 
-	display: block;
+  display: block;
 
 }
 
 /* Nav end */
 
+/* Search form init */
+
+form div label {
+  margin-left: 5%;
+}
+
+form input[type=range] {
+  width: 30%;
+}
+
+.diffSlider div {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.diffSlider div * {
+  margin: auto;
+}
+
+/* containers */
+.main-container {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+
+#page-body {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+
+/* Recetas */
+
+
+.recetaInfoSec {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #f1f1f1;
+  width: 100%;
+  float: left;
+}
+
+
+.receta-list-item {
+  /* text-decoration: none; */
+  border: 1px solid black;
+  /* width: 24.99999%; */
+  /* padding: 0 6px; */
+  float: left;
+  width: 24%;
+  margin: 0.5%;
+
+
+}
+
+.responsive-recetasList div:nth-child(even) .recetaInfoSec {
+  flex-direction: row-reverse;
+  background-color: rgb(158, 171, 175);
+  /* font-size:xx-small; */
+
+
+}
+
+.responsive-recetasList {
+
+  /* padding: 0 6px; */
+  float: left;
+  width: 100%;
+
+}
+
+.image-container {
+  float: right;
+  margin-bottom:1%;
+}
+
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 1200px) {
+  .receta-list-item {
+    /* margin: 6px 0; */
+    width: 48%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .receta-list-item {
+    width: 100%;
+  }
+}

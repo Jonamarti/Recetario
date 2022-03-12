@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import {React, useState} from 'react';
+
 
 // import RecetaList from '../components/RecetaList';
 
@@ -8,16 +9,40 @@ import React, { useState, useEffect } from 'react';
 const RecetasSearchPage = () => {
 
 
+	
+
+
+	const rangeSlider = () => {
+
+		var minDiffSlider = document.getElementById("minDiff");
+		var maxDiffSlider = document.getElementById("maxDiff");
+
+
+		document.getElementById("minDiffLabel").innerText = "Dificultad mínima: " + minDiffSlider.value + " /10";
+		document.getElementById("maxDiff").min = minDiffSlider.value;
+
+		document.getElementById("maxDiffLabel").innerText = "Dificultad máxima: " + maxDiffSlider.value + " /10";
+	}
+
+	const [recetaName, setName] = useState("");
+
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		alert(`The name you entered was: ${recetaName}`)
+	}
+
+
+
 	// const [recetasList, setRecetasList] = useState([]);
 
 
 
 	/*
-	fetch from backend server.
+	fetch from  server.
 	useEffect(() => {
 		const fetchData = async () => {
 
-			const result = await fetch(`${APIURL}/api/plants`);
+			const result = await fetch(`${APIURL}/api/recetas`);
 			const body = await result.json();
 			setreceta(body);
 		}
@@ -28,19 +53,6 @@ const RecetasSearchPage = () => {
 	*/
 
 
-
-
-	// useEffect(() => {
-	// 	const fetchData = async () => {
-
-	// 		const result = await fetch(`recetas.json`);
-	// 		const body = await result.json();
-	// 		setRecetasList(body["recetas"]);
-	// 	}
-	// 	fetchData();
-
-	// }, []);
-
 	return (
 		<>
 			<div>
@@ -49,16 +61,15 @@ const RecetasSearchPage = () => {
 			</div>
 
 			<div>
-				<form action="/">
-
-
+				
+				<form onSubmit={handleSubmit}>
 
 					<p>
 						Por favor introduzca el nombre de la receta
 					</p>
 
-					<div className="form-floating mb-3 mt-3">
-						<input type="search" placeholder="Nombre" className="form-control"></input>
+					<div className="form-floating mb-3 mt-3 col-sm-5">
+						<input type="text" placeholder="Nombre" name="RecipeName" className="form-control" value={recetaName} onChange={(e) => setName(e.target.value)}></input>
 						<label> Nombre </label>
 
 					</div>
@@ -67,13 +78,13 @@ const RecetasSearchPage = () => {
 					<label> Tiempo de preparación </label>
 					<div className='row'>
 						<div className="form-floating mb-3 mt-3 col-sm-5">
-							<input type="number" maxLength="4" min="0" placeholder="60" className="form-control"></input>
+							<input type="number" name="maxTime" maxLength="4" min="0" placeholder="60" className="form-control"></input>
 							<label> Tiempo máximo (min) </label>
 						</div>
 
 
 						<div className="form-floating mb-3 mt-3 col-sm-5">
-							<input type="number" placeholder="10" min="0" className="form-control"></input>
+							<input type="number" name="minTime" placeholder="10" min="0" className="form-control"></input>
 							<label> Tiempo mínimo (min) </label>
 						</div>
 					</div>
@@ -81,62 +92,52 @@ const RecetasSearchPage = () => {
 
 					<label> Número de ingredientes </label>
 					<div className='row'>
-					<div className="form-floating mb-3 mt-3 col-sm-5">
-						<input type="number" placeholder="20" min="1" className="form-control"></input>
-						<label> Ingredientes máximos </label>
-					</div>
+						<div className="form-floating mb-3 mt-3 col-sm-5">
+							<input type="number" name="maxIngred" placeholder="20" min="1" className="form-control"></input>
+							<label> Ingredientes máximos </label>
+						</div>
 
-					<div className="form-floating mb-3 mt-3 col-sm-5">
-						<input type="number" placeholder="2" min="1" className="form-control"></input>
-						<label> Ingredientes mínimos </label>
-					</div>
+						<div className="form-floating mb-3 mt-3 col-sm-5">
+							<input type="number" name="minIngred" placeholder="2" min="1" className="form-control"></input>
+							<label> Ingredientes mínimos </label>
+						</div>
 
 					</div>
 
 					<br>
 					</br>
 
-					<label> Dificultad de preparación:</label>
-					<div className='row'>
-					<div className="form-floating mb-3 mt-3 col-sm-4">
-						<input type="number" placeholder="5" min="0" max="10" className="form-control"></input>
-						<label> Min </label>
-					</div>
 
-					<div className="form-floating mb-3 mt-3 col-sm-4">
-						<input type="number" placeholder="5" min="0" max="10" className="form-control"></input>
-						<label>Máx</label>
-					</div>
 
-					</div>
-
-					<div >
-						<input type="range" min="0" max="10" step="0.5" className="form-range" id="diffRange"></input>
-						<label id="diffRangeLabel">Difficulty x/10</label>
+					<div className='diffSlider'>
+						<div>
+							<label id="minDiffLabel">Dificultad mínima: x/10</label>
+							<input type="range" name="minDiff" min="0" max="10" step="0.1" className="form-range col-sm-3" id="minDiff" onChange={rangeSlider}></input>
+						</div>
+						<div display='flex'>
+							<label id="maxDiffLabel">Dificultad máxima: x/10</label>
+							<input type="range" name="maxDiff" min="0" max="10" step="0.1" className="form-range col-sm-3" id="maxDiff" onChange={rangeSlider}></input>
+						</div>
 					</div>
 					<br>
 					</br>
-
-
-					{/* <p> Seleccione el método de búsqueda:</p> <br></br>
-					<input type="radio" id="html" name="fav_language" value="HTML" />
-					<label for="html">HTML</label>
-					<input type="radio" id="css" name="fav_language" value="CSS" />
-					<label for="css">CSS</label>
-					<input type="radio" id="javascript" name="fav_language" value="JavaScript" />
-					<label for="javascript">JavaScript</label> */}
 
 
 					<br></br>
 					<p>Seleccione el método de clasificación:</p>
 					<br></br>
-					<input type="radio" id="alfaAsc" name="age" value="Alfabético - ascendente" />
+					<input type="radio" id="alfaAsc" name="order" value="Alfabético - ascendente" />
 					<label>Alfabético ascendente</label>
-					<input type="radio" id="alfaDesc" name="age" value="Alfabético - descendente" />
+					<br></br>
+					<input type="radio" id="alfaDesc" name="order" value="Alfabético - descendente" />
 					<label>Alfabético descendente</label>
-					<input type="radio" id="tiempoAsc" name="age" value="Tiempo de preparación" />
+
+					<br></br>
+					<input type="radio" id="tiempoAsc" name="order" value="Tiempo de preparación" />
 					<label>Tiempo de preparación</label>
 					<br></br>
+
+
 					<input type="submit" value="Submit" />
 
 				</form>

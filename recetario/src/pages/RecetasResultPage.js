@@ -5,12 +5,9 @@ import RecetaList from '../components/RecetaList';
 // var APIURL = 'http://localhost:8000';
 
 
-const RecetasPage = () => {
-
+const RecetasResultPage = () => {
 
 	const [recetasList, setRecetasList] = useState([]);
-
-
 
 	/*
 	fetch from backend server.
@@ -27,9 +24,7 @@ const RecetasPage = () => {
 
 	*/
 
-
-
-
+	
 	useEffect(() => {
 		const fetchData = async () => {
 
@@ -41,9 +36,7 @@ const RecetasPage = () => {
 
 	}, []);
 
-
-
-
+	
 
 	// // fetch from json file TODO: in the previous one, implement catch error
 	// useEffect(() => {
@@ -80,9 +73,8 @@ const RecetasPage = () => {
 
 				{/* <h1>Recetas guardadas</h1> */}
 				<h2>A continuación se muestran las recetas guardadas. Selecciona una de ellas para ir a su página </h2>
-				<div className='responsive-recetasList'>
-					<RecetaList recetas={recetasList} />
-				</div>
+
+				<RecetaList recetas={recetasList} />
 			</div>
 
 			<div>
@@ -94,4 +86,4 @@ const RecetasPage = () => {
 };
 
 
-export default RecetasPage;
+export default RecetasResultPage;

@@ -19,10 +19,13 @@ import './App.css';
 import RecetasSearchPage from './pages/RecetasSearchPage';
 import RecetasModifyPage from './pages/RecetasModifyPage';
 import RecetasCreatePage from './pages/RecetasCreatePage';
+import RecetasResultPage from './pages/RecetasResultPage';
+
+import RecetasAdvancedSearch from './components/RecetasAdvancedSearch';
 
 function App() {
   return (
-    <div className="App container-fluid">
+    <div className="App">
 
       <Router>
         <Nav />
@@ -35,6 +38,8 @@ function App() {
             <Route path="/recetasSearch" element={<RecetasSearchPage />} />
             <Route path="/recetasModify" element={<RecetasModifyPage />} />
             <Route path="/recetasCreate" element={<RecetasCreatePage />} />
+            <Route path="/recetasResultPage" element={<RecetasResultPage />} />
+            <Route path="/advancedSearchPage" element={<RecetasAdvancedSearch />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </div>
